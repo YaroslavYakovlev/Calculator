@@ -6,31 +6,28 @@
 
 int main(){
   std::cout << "Calculator" << std::endl;
-  std::stringstream str;
+  std::stringstream text;
   double num1, num2, res;
   std::string action;
   char symbol;
-  int indexSymbol;
-
-
   std::cin >> action;
 
-  for(int i = 0; i < action.length(); i++){
-    if((action[i] == '*') || (action[i] == '/' )||
-      (action[i] == '+') || (action[i] == '-')){
-        symbol = action[i];
-        indexSymbol = i;
-        break;
-    }
+  text << action;
+  std::cout << "text = " << text.str() << std::endl;
+
+  text >> num1 >> symbol >> num2;
+
+  if(symbol == '+'){
+    res = num1 + num2;
+  }else if(symbol == '-'){
+    res = num1 - num2;
+  }else if(symbol == '*'){
+    res = num1 * num2;
+  }else if(symbol == '/'){
+    res = num1 / num2;
   }
 
-  num1 = std::stod(action.substr(0,indexSymbol));
-  num2 = std::stod(action.substr(indexSymbol + 1,action.length()));
-
-  std::cout << "1 " << num1 << std::endl;
-  std::cout << "2 " <<  symbol << std::endl;
-  std::cout << "3 " << num2 << std::endl;
-  std::cout << "4 " << res << std::endl;
+  std::cout << "res = " << res << std::endl;
 
 
 
